@@ -125,7 +125,11 @@ apt-get install git
 
 And other packages:
 
-apt-get install gettext unifont xorriso mtools
+apt-get install gettext unifont xorriso mtools zip
+
+Additional packages (needed only if you want to run grub-build-004-make-check ):
+First step. Configure src entries on your sources.list file.
+apt-get -y build-dep grub2
 
 Now we are going to work as a normal user
 
@@ -138,7 +142,7 @@ cd  ~/gnu/sgd/supergrub2_upstream
 
 Now we are going to get Super Grub2 Disk source code.
 
-git clone https://forja.cenatic.es/anonscm/git/supergrub2/supergrub2.git
+git clone https://github.com/supergrub/supergrub.git
 
 Although a final user can use their own grub thanks to supergrub-build-config file we recommend you to build grub yourself thanks to super grub disk build script.
 
@@ -150,7 +154,8 @@ Then we will fetch, build grub and install grub in a custom directory (this will
 ./grub-build-001-prepare-build
 ./grub-build-002-clean-and-update
 ./grub-build-003-build-all
-./grub-build-004-install-all
+./grub-build-004-make-check (optional)
+./grub-build-005-install-all
 
 * Finally we can just build the hybrid version for SG2D:
 
@@ -169,6 +174,7 @@ which their filename might vary depending on the current Super Grub2 Disk versio
 
 ./supergrub-meta-mkrescue
 
+In this case the files will be found at releases/ directory.
 
 Alternative Super Grub2 Disk Build
 ====================================
